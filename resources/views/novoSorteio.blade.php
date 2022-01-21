@@ -1,12 +1,14 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="container">
+
+<div class="container" style="border: 3px solid black; background-color :white; margin-top:50px; border-radius: 10px">
     <div class="py-5 text-center">
+        <img src="{{asset('img/guido.png')}}" style="width: 150px">
         <form action="/grupoSorteio" method="POST">
            @csrf
            <div class="form-group">
-                <label for="dataSorteio">Data de realização do Amigo Secreto</label>
+                <label for="dataSorteio">Data de realização</label>
                 <input type="text" class="datepicker form-control" name="dataSorteio" id="dataSorteio">
                 <div class="input-group-addon">
                     <span class="glyphicon glyphicon-calendar"></span>
@@ -20,9 +22,9 @@
                 <label for="vrMaximo">Valor máximo: R$</label>
                 <input type="number" class="form-control" name="vrMaximo" id="vrMaximo" placeholder="1.0" step="1.00" min="1" max="1000">
             </div>
-            
-            <button type="submit" class="btn btn-primary btn-sm">Salvar</button>
-            <button onclick="window.location.href='/grupoSorteio';" type="button" class="btn btn-danger btn-sm">Cancelar</button>
+            <br>
+            <button type="submit" class="btn btn-primary btn-sm" style="background-color :green; border-color: green">Salvar</button>
+            <button onclick="window.location.href='/grupoSorteio';" type="button" class="btn btn-danger btn-sm" >Cancelar</button>
         </form>
     </div> 
 </div> 

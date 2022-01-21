@@ -1,3 +1,5 @@
+<link href="https://fonts.googleapis.com/css2?family=Rancho&display=swap" rel="stylesheet">
+
 @extends('layouts.app')
 
 @section('content')
@@ -12,24 +14,21 @@
                 {{ session()->get('success') }}
             </div><br />
         @endif        
-            <table class="table table-sm">
+            <table class="table table-sm" style="margin-top: 100px">
                 <thead>
-                  <tr>
-                    <th style="text-align:left;width: 50px" scope="col"><img src="{{ asset('img/logo.svg') }}" alt=""></th>
-                    <th style="text-align:center;width: 400px"scope="col"><h5 class="card-title">Amigo Secreto</h5> </th>
-                  </tr>
                 </thead>
                 <tbody>
                 </tbody>
               </table>
-            <h5 class="card-title" style="text-align: center">Cadastro de Sorteios</h5>
-                <table class="table table-ordered table-hover" id="tabelaSorteios">
+            <h5 class="card-title" style="text-align: center; font-family: Rancho; font-size:40px; font-weight: bolder" >Cadastro de Sorteios</h5>
+            <img src="{{asset('img/guido.png')}}" style="width: 150px">    
+            <table class="table table-ordered table-hover" id="tabelaSorteios" style="border: 3px solid black; background-color :white; margin-top:50px; border-radius: 10px">
                     <thead>
                         <tr>
-                            <th>Data do Sorteio</th>
-                            <th>Valor mínimo</th>
-                            <th>Valor máximo</th>
-                            <th>criado por:</th>
+                            <th>Data da brincadeira</th>
+                            <th>Mínimo valor</th>
+                            <th>Máximo valor</th>
+                            <th>Autor:</th>
                             <th style="text-align:center" colspan="5">Ações</th>
                         </tr>
                     </thead>
@@ -42,10 +41,10 @@
                             <td>{{ $item->User->name }}</td>
                             @if($item->User->id == Auth::id())
                                 <td style="text-align:center">
-                                    <a href="/grupoSorteio/editar/{{$item->id}}" class="btn btn-primary">Editar</a>
+                                    <a href="/grupoSorteio/editar/{{$item->id}}" class="btn btn-primary" style="background-color:green; color:white; border-color:green">Editar</a>
                                 </td>
                                 <td style="text-align:center">
-                                    <a href="/grupoSorteio/apagar/{{$item->id}}" class="btn btn-danger">Apagar</a>
+                                    <a href="/grupoSorteio/apagar/{{$item->id}}" class="btn btn-danger" style="background-color:green; color:white; border-color:green">Apagar</a>
                                 </td>
                                 @if($item->sorteioRealizado == 0)
                                     @if($item->totalParticipantes > 2)
@@ -61,7 +60,7 @@
                             @endif
                             @if($item->sorteioRealizado == 0)
                                     <td style="text-align:center">
-                                        <a href="/participante/inscrever/{{$item->id}}" class="btn btn-success">Inscrever-se</a>
+                                        <a href="/participante/inscrever/{{$item->id}}" class="btn btn-success" style="background-color:green; color:white">Inscrever</a>
                                     </td>
                             @else 
                                 @if($item->souParticipante == 1)
@@ -71,7 +70,7 @@
                                 @endif
                             @endif
                             <td style="text-align:center">
-                                    <a href="/participante/{{$item->id}}" class="btn btn-info">Participantes</a>
+                                    <a href="/participante/{{$item->id}}" class="btn btn-info " style="background-color:green; color:white; border-color:green" >Amigos</a>
                             </td>
                         </tr>  
                         @endforeach

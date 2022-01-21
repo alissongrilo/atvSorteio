@@ -2,7 +2,7 @@
 
 @section('content')
 <div class="jumbotron">
-    <div class="container">
+    <div class="container" >
         <div class="py-4 text-center">
             <img class="d-block mx-auto mb-4" src="{{ asset('storage/imagens/logo.jpg') }}" alt="" width="90" height="90">
         </div>

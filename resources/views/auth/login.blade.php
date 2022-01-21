@@ -1,6 +1,12 @@
 @extends('layouts.app')
 
 @section('content')
+<div class="bonekin">
+    <picture>
+        <center><img style="width: 230px" src="{{asset('img/bonekin.png')}}"></center>
+    </picture>
+</div>
+
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">
