@@ -9,7 +9,7 @@ class GrupoSorteio extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['dataSorteio', 'vrMinimo', 'vrMaximo', 'user_id'];
+    protected $fillable = ['dataSorteio', 'valorMinimo', 'valorMaximo', 'user_id'];
 
     public function user()
     {

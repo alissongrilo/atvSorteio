@@ -15,9 +15,9 @@ class CreateAmigoSecretosTable extends Migration
     {
         Schema::create('amigo_secretos', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->unsignedBigInteger('participante_id');
-            $table->foreign('participante_id')->references('id')->on('participantes')->onDelete('cascade');
-            $table->unsignedBigInteger('participanteSorteado_id');
+            $table->unsignedBigInteger('membro_id');
+            $table->foreign('membro_id')->references('id')->on('membros')->onDelete('cascade');
+            $table->unsignedBigInteger('membroSorteado_id');
             $table->unsignedBigInteger('grupoSorteio_id');
             $table->foreign('grupoSorteio_id')->references('id')->on('grupo_sorteios')->onDelete('cascade');
             $table->timestamps();

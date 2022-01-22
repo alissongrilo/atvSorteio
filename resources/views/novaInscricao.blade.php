@@ -3,7 +3,7 @@
 @section('content')
 <div class="container">
     <div class="py-5 text-center" style="border: 3px solid black; background-color :white; margin-top:50px; border-radius: 10px">
-        <form action="/participante/{{$dados->id}}" method="POST">
+        <form action="/membro/{{$array->id}}" method="POST">
            @csrf
             <div class="form-group">
                 <label for="dicaPresente" style="text-align: center; font-family: Rancho; font-size:30px; font-weight: bolder">Dica de presente</label>

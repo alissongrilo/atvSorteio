@@ -16,8 +16,8 @@ class CreateGrupoSorteiosTable extends Migration
         Schema::create('grupo_sorteios', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->date('dataSorteio');
-            $table->float('vrMinimo', 8, 2);
-            $table->float('vrMaximo', 8, 2);
+            $table->float('valorMinimo', 8, 2);
+            $table->float('valorMaximo', 8, 2);
             $table->unsignedBigInteger('user_id');
             $table->foreign('user_id')->references('id')->on('users');
             $table->timestamps();

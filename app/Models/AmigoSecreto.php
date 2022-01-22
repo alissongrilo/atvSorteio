@@ -9,10 +9,10 @@ class AmigoSecreto extends Model
 {
     use HasFactory;
     
-    protected $fillable = ['participante_id', 'participanteSorteado_id', 'grupoSorteio_id'];
+    protected $fillable = ['membro_id', 'membroSorteado_id', 'grupoSorteio_id'];
 
-    public function participante(){
-        return $this->belongsTo(Participante::class);
+    public function membro(){
+        return $this->belongsTo(Membro::class);
     }
     public function grupoSorteio(){
         return $this->belongsTo(GrupoSorteio::class);

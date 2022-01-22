@@ -33,11 +33,11 @@
                         </tr>
                     </thead>
                     <tbody>
-                        @foreach ($dados as $item)
+                        @foreach ($array as $item)
                         <tr>
                             <td>{{ $item->dataSorteio }}</td>
-                            <td> R$ {{ $item->vrMinimo }}</td>
-                            <td> R$ {{ $item->vrMaximo }}</td>
+                            <td> R$ {{ $item->valorMinimo }}</td>
+                            <td> R$ {{ $item->valorMaximo }}</td>
                             <td>{{ $item->User->name }}</td>
                             @if($item->User->id == Auth::id())
                                 <td style="text-align:center">
@@ -47,7 +47,7 @@
                                     <a href="/grupoSorteio/apagar/{{$item->id}}" class="btn btn-danger" style="background-color:green; color:white; border-color:green">Apagar</a>
                                 </td>
                                 @if($item->sorteioRealizado == 0)
-                                    @if($item->totalParticipantes > 2)
+                                    @if($item->totalMembros > 2)
                                         <td style="text-align:center">
                                             <a href="/grupoSorteio/sortear/{{$item->id}}" class="btn btn-primary">Sortear</a>
                                         </td>
@@ -60,17 +60,17 @@
                             @endif
                             @if($item->sorteioRealizado == 0)
                                     <td style="text-align:center">
-                                        <a href="/participante/inscrever/{{$item->id}}" class="btn btn-success" style="background-color:green; color:white">Inscrever</a>
+                                        <a href="/membro/inscrever/{{$item->id}}" class="btn btn-success" style="background-color:green; color:white">Inscrever</a>
                                     </td>
                             @else 
-                                @if($item->souParticipante == 1)
+                                @if($item->souMembro == 1)
                                     <td style="text-align:center">
-                                        <a href="/participante/verAmigo/{{$item->id}}" class="btn btn-success">Ver Amigo Secreto</a>
+                                        <a href="/membro/verAmigo/{{$item->id}}" class="btn btn-success">Ver Amigo Secreto</a>
                                     </td>
                                 @endif
                             @endif
                             <td style="text-align:center">
-                                    <a href="/participante/{{$item->id}}" class="btn btn-info " style="background-color:green; color:white; border-color:green" >Amigos</a>
+                                    <a href="/membro/{{$item->id}}" class="btn btn-info " style="background-color:green; color:white; border-color:green" >Amigos</a>
                             </td>
                         </tr>  
                         @endforeach

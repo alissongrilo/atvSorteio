@@ -29,10 +29,10 @@ Route::get('/grupoSorteio/apagar/{id}', [App\Http\Controllers\GrupoSorteioContro
 Route::get('/grupoSorteio/sortear/{id}', [App\Http\Controllers\GrupoSorteioController::class, 'sortear']);
 Route::get('/grupoSorteio/deletarSorteio/{id}', [App\Http\Controllers\GrupoSorteioController::class, 'deletarSorteio']);
 
-Route::get('/participante/{id}', [App\Http\Controllers\ParticipanteController::class, 'index']);
-Route::get('/participante/inscrever/{id}', [App\Http\Controllers\ParticipanteController::class, 'create']);
-Route::post('/participante/{id}', [App\Http\Controllers\ParticipanteController::class, 'store']);
-Route::get('/participante/editar/{id}', [App\Http\Controllers\ParticipanteController::class, 'edit']);
-Route::post('/participante/atualizar/{id}', [App\Http\Controllers\ParticipanteController::class, 'update']);
-Route::get('/participante/apagar/{id}', [App\Http\Controllers\ParticipanteController::class, 'destroy']);
-Route::get('/participante/verAmigo/{id}', [App\Http\Controllers\ParticipanteController::class, 'verAmigo']);
+Route::get('/membro/{id}', [App\Http\Controllers\MembroController::class, 'index']);
+Route::get('/membro/inscrever/{id}', [App\Http\Controllers\MembroController::class, 'create']);
+Route::post('/membro/{id}', [App\Http\Controllers\MembroController::class, 'store']);
+Route::get('/membro/editar/{id}', [App\Http\Controllers\MembroController::class, 'edit']);
+Route::post('/membro/atualizar/{id}', [App\Http\Controllers\MembroController::class, 'update']);
+Route::get('/membro/apagar/{id}', [App\Http\Controllers\MembroController::class, 'destroy']);
+Route::get('/membro/verAmigo/{id}', [App\Http\Controllers\MembroController::class, 'verAmigo']);

@@ -4,12 +4,12 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
-use App\Models\Participante;
+use App\Models\Membro;
 use App\Models\GrupoSorteio;
 use App\Models\AmigoSecreto;
 use App\Models\User;
 
-class ParticipanteController extends Controller
+class MembroController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -22,9 +22,9 @@ class ParticipanteController extends Controller
 
     public function index($id)
     {
-        $dados = Participante::where('grupoSorteio_id', '=', $id)->with('User')->get();
-        if(isset($dados))
-            return view('listaParticipantes', compact('dados'));
+        $array = Membro::where('grupoSorteio_id', '=', $id)->with('User')->get();
+        if(isset($array))
+            return view('listaMembros', compact('array'));
         return redirect('/grupoSorteio');
     }
 
@@ -35,13 +35,13 @@ class ParticipanteController extends Controller
      */
     public function create($id)
     {
-        $verifica = Participante::where('user_id', '=', Auth::id())->where('grupoSorteio_id', '=', $id)->first();
+        $verifica = Membro::where('user_id', '=', Auth::id())->where('grupoSorteio_id', '=', $id)->first();
         if(isset($verifica)){
             return redirect('/grupoSorteio')->with('danger', 'Você já está inscrito neste sorteio!!');
         }else{
-            $dados = GrupoSorteio::find($id);
-            if(isset($dados))
-                return view('novaInscricao', compact('dados'));
+            $array = GrupoSorteio::find($id);
+            if(isset($array))
+                return view('novaInscricao', compact('array'));
             return redirect('/grupoSorteio');
         }
     }
@@ -54,12 +54,12 @@ class ParticipanteController extends Controller
      */
     public function store(Request $request, $id)
     {
-        $dados = new Participante();
-        $dados->dicaPresente = $request->input('dicaPresente');
-        $dados->user_id = Auth::id();
-        $dados->grupoSorteio_id = $id;
-        $dados->save();
-        return redirect('/grupoSorteio')->with('success', 'Inscrição realizada com sucesso!!');
+        $array = new Membro();
+        $array->dicaPresente = $request->input('dicaPresente');
+        $array->user_id = Auth::id();
+        $array->grupoSorteio_id = $id;
+        $array->save();
+        return redirect('/grupoSorteio')->with('success', 'Inscrição realizada!');
     }
 
     /**
@@ -81,9 +81,9 @@ class ParticipanteController extends Controller
      */
     public function edit($id)
     {
-        $dados = Participante::find($id);
-        if(isset($dados))
-            return view('editarPresente', compact('dados'));
+        $array = Membro::find($id);
+        if(isset($array))
+            return view('editarPresente', compact('array'));
         return redirect('/grupoSorteio');
     }
 
@@ -96,10 +96,10 @@ class ParticipanteController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $dados = Participante::find($id);
-        if(isset($dados)){
-            $dados->dicaPresente = $request->input('dicaPresente');
-            $dados->save();
+        $array = Membro::find($id);
+        if(isset($array)){
+            $array->dicaPresente = $request->input('dicaPresente');
+            $array->save();
             return redirect('/grupoSorteio')->with('success', 'atualização realizada com sucesso!!');
         }
     }
@@ -112,16 +112,16 @@ class ParticipanteController extends Controller
      */
     public function destroy($id)
     {
-        $dados = Participante::find($id);
-        if(isset($dados))
-            $dados->delete();
+        $array = Membro::find($id);
+        if(isset($array))
+            $array->delete();
         return redirect('/grupoSorteio');
     }
 
     public function verAmigo($id){
-        $dados = AmigoSecreto::where('grupoSorteio_id', '=', $id)->where('participante_id', '=', Auth::id())->first();
-        $participante = Participante::find($dados->participanteSorteado_id);
-        $amigo = User::find($participante->user_id);
+        $array = AmigoSecreto::where('grupoSorteio_id', '=', $id)->where('membro_id', '=', Auth::id())->first();
+        $membro = Membro::find($array->membroSorteado_id);
+        $amigo = User::find($membro->user_id);
         
         return view('verAmigo', compact('amigo'));
     }

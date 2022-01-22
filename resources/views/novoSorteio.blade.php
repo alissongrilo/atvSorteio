@@ -15,12 +15,12 @@
                 </div>
             </div>
             <div class="form-group">
-                <label for="vrMinimo">Valor mínimo: R$</label>
-                <input type="number" class="form-control" name="vrMinimo" id="vrMinimo" placeholder="1.0" step="1.00" min="1" max="100">
+                <label for="valorMinimo">Valor mínimo: R$</label>
+                <input type="number" class="form-control" name="valorMinimo" id="valorMinimo" placeholder="1.0" step="1.00" min="1" max="100">
             </div>
             <div class="form-group">
-                <label for="vrMaximo">Valor máximo: R$</label>
-                <input type="number" class="form-control" name="vrMaximo" id="vrMaximo" placeholder="1.0" step="1.00" min="1" max="1000">
+                <label for="valorMaximo">Valor máximo: R$</label>
+                <input type="number" class="form-control" name="valorMaximo" id="valorMaximo" placeholder="1.0" step="1.00" min="1" max="1000">
             </div>
             <br>
             <button type="submit" class="btn btn-primary btn-sm" style="background-color :green; border-color: green">Salvar</button>
